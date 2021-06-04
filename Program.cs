@@ -73,21 +73,21 @@ namespace Summer_Assignment
 
             static bool JudgeCircle(string moves)
             {
-                try
+                try          // implementation of try and catch block
                 {
 
-                    int x = 0;
+                    int x = 0;                                     //Initialize x and y to 0
                     int y = 0;
-                    char[] pos = moves.ToCharArray();
+                    char[] pos = moves.ToCharArray(); 
 
                     for (int move = 0; move < pos.Length; move++)
                     {
-                        if (move == 'U') y = y + 1;//y++;
-                        else if (move == 'D') y = y - 1; //y--;
-                        else if (move == 'L') x = x + 1; //x++;
-                        else if (move == 'R') x = x - 1; //x--;
+                        if (move == 'U') y = y + 1;//y++;         // if input is U increase y by 1               
+                        else if (move == 'D') y = y - 1; //y--;   // if input is D increase y by 1     
+                        else if (move == 'L') x = x + 1; //x++;   // if input is L increase y by 1     
+                        else if (move == 'R') x = x - 1; //x--;   // if input is R increase y by 1     
                     }
-                    if (x == 0 && y == 0)
+                    if (x == 0 && y == 0)                         // if x and y both remain unchanged then robot is back to the origional position.
                     {
                         return true;
                     }
@@ -95,8 +95,6 @@ namespace Summer_Assignment
                     {
                         return false;
                     }
-
-
                 }
 
 
@@ -112,7 +110,7 @@ namespace Summer_Assignment
 
 
 
-        /* Self reflection 
+        /* Self reflection Question 1
          * 
          * Time Complexity: O(N)O(N), where NN is the length of moves. We iterate through the string. 
          * Space complexity is O(1)
@@ -126,18 +124,18 @@ namespace Summer_Assignment
                 string expression = "abcdefghijklmnopqrstuvwxyz";
                 int count = 0;
 
-                foreach (char i in expression)
+                foreach (char i in expression)                     // loop one for checking characters in expression
                 {
-                    foreach (char j in s)
+                    foreach (char j in s)                          // loop two to count the characters 
                     {
-                        if (i == j)
+                        if (i == j)                               // if character is matched; break from the loop
                         {
                             count++;
                             break;
                         }
                     }
                 }
-                if (count == 26)
+                if (count == 26)                               // condition for checking the count
                     return true;
                 else
                     return false;
@@ -161,10 +159,10 @@ namespace Summer_Assignment
             {
                 {
                     int count = 0;
-
-                    for (int i = 0; i < nums.Length; i++)
+ 
+                    for (int i = 0; i < nums.Length; i++)                  //initialize loop for array elements
                     {
-                        for (int j = i + 1; j < nums.Length; j++)
+                        for (int j = i + 1; j < nums.Length; j++)         //compare each element to the outer loop values if values match then keep a count.
                         {
                             if (nums[i] == nums[j])
                             {
@@ -203,13 +201,13 @@ namespace Summer_Assignment
                 {
                     sum = sum + i;
                 }
+   
+                int leftsum = 0;                                //Initialize leftsum to 0
 
-                int leftsum = 0;
 
-
-                for (int j = 0; j < nums.Length; j++)
+                for (int j = 0; j < nums.Length; j++)            
                 {
-                    if (leftsum == (sum - leftsum - nums[j]))
+                    if (leftsum == (sum - leftsum - nums[j]))   //if leftside sum is eaual to sum - leftsum - element, then return the position of element
                     {
                         return j;
                     }
@@ -243,8 +241,8 @@ namespace Summer_Assignment
             {
                 int maxLength = 0;
                 string result = "";
-                maxLength = (word1.Length > word2.Length) ? word1.Length : word2.Length;
-                for (int i = 0; i < maxLength; i++)
+                maxLength = (word1.Length > word2.Length) ? word1.Length : word2.Length;  // take the maximum length from both the words
+                for (int i = 0; i < maxLength; i++)                       //for each element print the letter alternatively till the max length is reached
                 {
                     if (i < word1.Length)
                         result += word1[i].ToString();
@@ -294,19 +292,19 @@ namespace Summer_Assignment
                         numOfWordsSeen++;
                         i++;
 
-                        if (vowels.IndexOf(temp[0]) != -1)
+                        if (vowels.IndexOf(temp[0]) != -1)        // append ma if it's vowels 
                         {
                             temp += "ma";
                         }
 
-                        else if (cons.IndexOf(temp[0]) != -1)
+                        else if (cons.IndexOf(temp[0]) != -1)     //append first letter to end and add ma if its constant
                         {
                             char firstLetter = temp[0];
                             temp = temp.Substring(1);
                             temp += firstLetter + "ma";
                         }
 
-                        for (int j = 0; j < numOfWordsSeen; j++)
+                        for (int j = 0; j < numOfWordsSeen; j++)   //append a to the end of words according to its index in sentence 
                         {
                             temp += 'a';
                         }
